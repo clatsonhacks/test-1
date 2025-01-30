@@ -15,7 +15,12 @@ app.post('/api/save', (req, res) => {
   res.status(201).json({ message: 'Data saved successfully.', data: newData });
 });
 
-app.get("/api/data", (req, res) => res.send("Express on Vercel"));
+app.get("/api/data", (req, res) => {res.json(dataStore)});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong on the server.' });
+});
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
