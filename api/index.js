@@ -29,6 +29,7 @@ app.post('/api/save', (req, res) => {
 // GET endpoint to retrieve data
 app.get('/api/data', (req, res) => {
   res.json(dataStore);
+  res.send('helllo world');
 });
 
 // Error handling middleware
@@ -36,6 +37,6 @@ app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong on the server.' });
 });
-
+app.listen(port, () => console.log("Server ready on port 3001."));
 // Start server
 module.exports = app;
