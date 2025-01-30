@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
+const morgan = require('morgan');
 let dataStore = [];
-
+app.use(express.json());
+app.use(morgan('dev')); 
 // POST endpoint to save data
 app.post('/api/save', (req, res) => {
   const { address } = req.body;
