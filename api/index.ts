@@ -1,7 +1,5 @@
 const express = require("express");
 const app = express();
-const cors = require('cors');
-app.use(cors());
 let dataStore = [];
 
 // POST endpoint to save data
